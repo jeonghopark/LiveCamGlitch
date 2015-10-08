@@ -3,8 +3,7 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     
-    
-    webCam.setDeviceID(1);
+    webCam.setDeviceID(0);
     cout << webCam.getWidth() << endl;
     webCam.setup(1280, 720);
     
