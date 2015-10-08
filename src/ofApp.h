@@ -2,6 +2,9 @@
 
 #include "ofMain.h"
 
+#include "GuiApp.h"
+#include "BaseArch.h"
+
 #include "ofxPostGlitch.h"
 
 class ofApp : public ofBaseApp{
@@ -24,9 +27,17 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
     
     
+    shared_ptr<GuiApp> gui;
+    BaseArch baseArch;
+    
+    
     ofVideoGrabber webCam;
     
     ofxPostGlitch glitchEffect;
     ofFbo liveVideoFbo;
+    
+    
+    float mainOffSetXPos, mainOffSetYPos;
+
 		
 };

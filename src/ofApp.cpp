@@ -3,6 +3,13 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     
+    
+    mainOffSetXPos = (ofGetWidth() - (baseArch.fassadeCorner[0].x + baseArch.fassadeCorner[1].x)) * 0.5;
+    mainOffSetYPos = (ofGetHeight() - (baseArch.fassadeCorner[0].y + baseArch.fassadeCorner[3].y)) * 0.5;
+    baseArch.mainOffSetXPos = mainOffSetXPos;
+    baseArch.mainOffSetYPos = mainOffSetYPos;
+
+    
     webCam.setDeviceID(0);
     cout << webCam.getWidth() << endl;
     webCam.setup(1280, 720);
@@ -36,6 +43,19 @@ void ofApp::draw(){
     glitchEffect.generateFx();
     liveVideoFbo.draw(640, 0);
 
+    
+    ofPushMatrix();
+    
+    ofTranslate( mainOffSetXPos, mainOffSetYPos );
+    
+    baseArch.guideFrames( ofColor(0) );
+    baseArch.drawEdgeCover( ofColor(0) );
+    baseArch.guideLines();
+    baseArch.guidePoints();
+    
+    ofPopMatrix();
+
+    
 }
 
 //--------------------------------------------------------------
@@ -119,6 +139,12 @@ void ofApp::mouseExited(int x, int y){
 //--------------------------------------------------------------
 void ofApp::windowResized(int w, int h){
 
+    mainOffSetXPos = (ofGetWidth() - (baseArch.fassadeCorner[0].x + baseArch.fassadeCorner[1].x)) * 0.5;
+    mainOffSetYPos = (ofGetHeight() - (baseArch.fassadeCorner[0].y + baseArch.fassadeCorner[3].y)) * 0.5;
+    baseArch.mainOffSetXPos = mainOffSetXPos;
+    baseArch.mainOffSetYPos = mainOffSetYPos;
+
+    
 }
 
 //--------------------------------------------------------------
