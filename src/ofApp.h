@@ -7,6 +7,7 @@
 
 #include "ofxPostGlitch.h"
 
+
 class ofApp : public ofBaseApp{
 
 	public:
@@ -39,5 +40,14 @@ class ofApp : public ofBaseApp{
     
     float mainOffSetXPos, mainOffSetYPos;
 
-		
+    
+    void glitchUpdate(ofPixels _p);
+    
+    bool bDirectglitch;
+    ofImage imgDirectGlitch;
+    ofImageQualityType quality;
+
+
+
+    
 };
