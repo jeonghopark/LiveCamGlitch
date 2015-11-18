@@ -3,19 +3,14 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     
-    
     quality = OF_IMAGE_QUALITY_WORST;
-
-
     
     mainOffSetXPos = (ofGetWidth() - (baseArch.fassadeCorner[0].x + baseArch.fassadeCorner[1].x)) * 0.5;
     mainOffSetYPos = (ofGetHeight() - (baseArch.fassadeCorner[0].y + baseArch.fassadeCorner[3].y)) * 0.5;
     baseArch.mainOffSetXPos = mainOffSetXPos;
     baseArch.mainOffSetYPos = mainOffSetYPos;
-
     
     webCam.setDeviceID(0);
-    cout << webCam.getWidth() << endl;
     webCam.setup(1280, 720);
     
     liveVideoFbo.allocate(webCam.getWidth(), webCam.getHeight());
@@ -42,14 +37,12 @@ void ofApp::update(){
         glitchUpdate(webCam.getPixels());
     }
     
-    
     liveVideoFbo.begin();
     ofColor(0,255);
     webCam.setAnchorPercent(0.5, 0);
     webCam.draw(0, 0);
     
     liveVideoFbo.end();
-    
     
 }
 
